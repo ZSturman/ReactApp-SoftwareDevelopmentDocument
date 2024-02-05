@@ -1,0 +1,114 @@
+@import "../Shared/variables.scss";
+@import "../Shared/mixins";
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(37, 37, 37);
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 7px 7px 0 0;
+
+  &.expanded {
+    border-radius: 7px 7px 0 0;
+  }
+
+  &.collapsed {
+    border-radius: 7px;
+  }
+}
+
+.title-and-delete-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  gap: 0.5rem;
+}
+
+.section-title {
+  cursor: text;
+  color: white;
+  text-align: start;
+  width: 100%;
+  border: none;
+
+}
+
+.section-delete-btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(92, 92, 92);
+  font-size: 1rem;
+  text-align: start;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(189, 189, 189);
+  }
+}
+
+.section-expander {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.section-body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(107, 107, 107);
+  border-radius: 0 0 14px 14px;
+  align-items: center;
+  gap: 0.25rem;
+  justify-content: center;
+  border: 3px solid rgb(37, 37, 37);
+
+  .section-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+
+    .section-button {
+      width: auto;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      padding-top: 0.4rem;
+      align-items: center;
+      justify-content: center;
+
+      &.delete {
+        background-color: rgb(161, 100, 100);
+        color: rgb(255, 230, 230);
+
+        &:hover {
+          background-color: rgb(204, 112, 112);
+          color: rgb(255, 230, 230);
+        }
+      }
+
+      &.layout {
+        background-color: rgb(100, 100, 160);
+        color: rgb(221, 231, 255);
+
+        &:hover {
+          background-color: rgb(129, 129, 209);
+          color: rgb(221, 231, 255);
+        }
+      }
+    }
+  }
+}
+
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 14px 14px;
+  margin: 0.5rem;
+  gap: 1rem;
+}

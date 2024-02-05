@@ -1,0 +1,139 @@
+/* Copy styles below, replace `doc` with `ch` and put into chapter */
+@import "../Shared/variables.scss";
+@import "../Shared/mixins";
+
+.document-form-container {
+  width: 400px;
+  height: 100%;
+  background-color: rgb(112, 112, 120);
+  overflow-y: scroll;
+}
+
+.doc-container {
+  border-radius: 14px;
+  margin: 1rem 0.5rem;
+
+  &.collapsed {
+    .doc-body {
+      display: none;
+    }
+
+    .doc-header {
+      border-radius: 14px;
+    }
+  }
+
+  &.expanded {
+    .doc-header {
+      border-radius: 14px 14px 0 0;
+    }
+
+    .doc-body {
+      border-radius: 0 0 14px 14px;
+    }
+  }
+
+  .doc-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(32, 32, 32);
+    align-items: center;
+    padding: 1rem;
+
+    .doc-title {
+    }
+
+    .doc-expander {
+      background-color: transparent;
+      border: none;
+      display: flex;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .doc-body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(128, 128, 128);
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+
+    .doc-buttons {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-evenly;
+
+      .doc-button {
+        width: auto;
+        cursor: pointer;
+        border: none;
+        width: 100%;
+        padding-top: 0.4rem;
+        align-items: center;
+        justify-content: center;
+
+        &.theme {
+          background-color: rgb(151, 178, 81);
+          color: white;
+
+          &:hover {
+            background-color: rgb(138, 178, 81);
+            color: white;
+          }
+        }
+
+
+        &.logo {
+          background-color: rgb(144, 81, 178);
+          color: white;
+
+          &:hover {
+            background-color: rgb(178, 81, 141);
+            color: white;
+          }
+        }
+
+
+        &.contributors {
+          background-color: rgb(81, 178, 91);
+          color: white;
+
+          &:hover {
+            background-color: rgb(90, 181, 86);
+            color: white;
+          }
+        }
+
+
+        &.delete {
+          background-color: rgb(161, 100, 100);
+          color: rgb(255, 230, 230);
+    
+          &:hover {
+            background-color: rgb(204, 112, 112);
+            color: rgb(255, 230, 230);
+          }
+        }
+    
+      }
+    }
+
+    .doc-settings-area {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(81, 124, 178);
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+
+      .doc-selected-setting {
+      }
+    }
+  }
+}

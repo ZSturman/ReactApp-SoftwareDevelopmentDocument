@@ -1,0 +1,19 @@
+.no-selected-doc-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .no-selected-doc-header{
+        font-size: 2rem;
+    }
+
+    .no-selected-doc-or {
+        line-height: 2rem;
+    }
+
+    .no-selected-doc-button {
+        
+    }
+}

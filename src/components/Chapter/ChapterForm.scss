@@ -1,0 +1,166 @@
+@import "../Shared/variables.scss";
+@import "../Shared/mixins";
+
+.chapter-title-input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .title-input {
+    height: 30px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgb(88, 96, 110);
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+.ch-container {
+  border-radius: 14px;
+  margin: 1rem 0.5rem;
+
+  &.collapsed {
+    .ch-body {
+      display: none;
+    }
+
+    .ch-header {
+      border-radius: 14px;
+    }
+  }
+
+  &.expanded {
+    .ch-header {
+      border-radius: 14px 14px 0 0;
+    }
+
+    .ch-body {
+      border-radius: 0 0 14px 14px;
+    }
+  }
+
+  .ch-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(32, 32, 32);
+    align-items: center;
+    padding: 1rem;
+
+    .ch-title {
+      cursor:text;
+    }
+
+    .ch-expander {
+      background-color: transparent;
+      border: none;
+      display: flex;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .ch-body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(128, 128, 128);
+    //width: 100%;
+    //align-items: center;
+    //justify-content: flex-start;
+    padding-bottom: 1rem;
+
+    .ch-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      .ch-buttons-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+      }
+    }
+
+    .ch-selected-settings-container {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(99, 99, 99);
+      align-items: center;
+      justify-content: center;
+
+      .ch-selected-setting {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(187, 187, 187);
+        border-radius: 14px;
+        width: 95%;
+        margin: 0.5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        color: black;
+      }
+    }
+  }
+}
+
+.add-chapter-btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(68, 68, 68);
+  font-size: 1rem;
+  text-align: end;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(0, 0, 0);
+  }
+
+  &:active {
+    color: $primary-active-color;
+  }
+}
+
+
+
+.chapter-delete-btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(147, 78, 78);
+  font-size: 1rem;
+  text-align: start;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(173, 37, 37);
+  }
+}
+
+.chapter-button {
+  width: auto;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  padding-top: 0.4rem;
+  align-items: center;
+  justify-content: center;
+
+  &.add-section {
+    background-color: rgb(81, 124, 178);
+    color: white;
+
+    &:hover {
+      background-color: rgb(81, 124, 178);
+      color: white;
+    }
+  }
+} 

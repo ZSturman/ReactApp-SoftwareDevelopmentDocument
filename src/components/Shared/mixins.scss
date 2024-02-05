@@ -1,0 +1,19 @@
+@mixin button-styles($bg-color, $text-color, $hover-color, $active-color) {
+    background-color: $bg-color;
+    color: $text-color;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+  
+    &:hover {
+      background-color: $hover-color;
+    }
+  
+    &.active {
+      background-color: $active-color;
+    }
+  }
+  

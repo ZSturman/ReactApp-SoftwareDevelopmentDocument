@@ -1,0 +1,78 @@
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(61, 61, 67);
+
+  .sidebar-toolbar {
+    margin: 0;
+    padding-top: .5rem;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(32, 32, 35);
+  }
+
+  .sidebar-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    overflow: scroll;
+  }
+}
+
+
+
+.sidebar-btn {
+  border: none;
+  font-size: 20px;
+  color: rgb(204, 204, 204);
+  background-color: transparent;
+  cursor: pointer;
+
+    &:hover {
+      color: rgb(255, 255, 255);
+    
+  }
+
+  &.hide {
+    background-color: rgb(96, 96, 96);
+    margin: 0;
+    border: none;
+    font-size: 20px;
+    color: rgb(199, 199, 199);
+
+    &:hover {
+        background-color: rgb(73, 73, 73);
+        color: white;
+        cursor: pointer;
+      }
+  }
+
+  &.show-list {
+    background-color: transparent;
+    
+  }
+
+  &.show {
+    background-color: rgb(96, 96, 96);
+    margin: 0;
+    border: none;
+    font-size: 20px;
+    color: rgb(199, 199, 199);
+
+    &:hover {
+        background-color: rgb(73, 73, 73);
+        color: white;
+        cursor: pointer;
+      }
+  }
+
+
+}
+
+

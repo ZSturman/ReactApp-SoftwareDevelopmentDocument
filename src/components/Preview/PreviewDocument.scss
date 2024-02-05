@@ -1,0 +1,133 @@
+.preview-window-and-panel {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+
+  .pagination-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .preview-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(95, 95, 95);
+  
+
+
+    .pagination-arrows {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .pdf-page {
+      display: flex;
+      flex-direction: column;
+      height: 90%;
+      aspect-ratio: 1 / 1.414;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: rgb(218, 217, 209);
+      color: black;
+      border-radius: 3px;
+      box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
+    }
+  }
+}
+
+.pagination-arrow-btn {
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  &.chapters {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.cover-page-preview-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chapter-preview {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .preview-content {
+    padding: 2rem 3rem;
+
+    .sections-preview {
+      display: flex;
+      gap: 0.5rem;
+      //border: 3px solid red;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: 1rem;
+      flex-wrap: wrap;
+
+      &.row {
+        flex-direction: row;
+
+        .content-preview-items {
+          flex: 1; // This ensures that each item takes up equal space in the row
+          // Add any other styling for items in a row
+        }
+      }
+
+      &.column {
+        flex-direction: column;
+
+        .content-preview-items {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.document-title {
+  word-wrap: break-word;
+}
+
+.content-preview-items {
+  word-wrap: break-word; // Wraps long words onto the next line
+  max-width: 100%; // Ensures that content doesn't exceed the width of its parent
+  overflow: hidden; // Optionally hide the overflowed content
+  text-overflow: ellipsis; // Optionally add ellipsis if the text overflows
+  flex: 1 1 auto; // flex-grow, flex-shrink and flex-basis set to auto
+
+  .content-image-preview {
+    max-width: 90%;
+    height: auto; // Keep the aspect ratio of images
+  }
+}

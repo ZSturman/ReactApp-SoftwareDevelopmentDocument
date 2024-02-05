@@ -1,0 +1,330 @@
+body {
+    background-color: rgb(61, 148, 149);
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+}
+
+$primary-color: rgb(161, 148, 149);
+$primary-hover-color: rgb(61, 148, 149, 0.5);
+$primary-active-color: rgba(149, 61, 61, 0.8);
+
+$secondary-color: rgb(10, 11, 62);
+$secondary-hover-color: rgba(100, 57, 164, 0.5);
+$secondary-active-color: rgba(74, 152, 170, 0.8);
+
+$flex-direction-column: column;
+$flex-direction-row: row;
+
+
+@mixin button-styles($color, $hover-color, $active-color) {
+    background-color: $color;
+    border: none;
+    color: white;
+    //padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: $hover-color;
+    }
+
+    &.active {
+        background-color: $active-color;
+    }
+}
+
+@mixin flex-layout($direction, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+@mixin responsive-font($small, $medium, $large) {
+    font-size: $small;
+
+    @media screen and (min-width: 600px) {
+        font-size: $medium;
+    }
+
+    @media screen and (min-width: 1200px) {
+        font-size: $large;
+    }
+}
+
+
+@mixin box-shadow($x: 0, $y: 0, $blur: 10px, $color: rgba(0, 0, 0, 0.15)) {
+    box-shadow: $x $y $blur $color;
+}
+
+
+@mixin animation($name, $duration: 0.5s, $timing-function: ease, $delay: 0s, $iteration-count: 1, $direction: normal) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing-function;
+    animation-delay: $delay;
+    animation-iteration-count: $iteration-count;
+    animation-direction: $direction;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@mixin border-radius($radius: 5px) {
+    border-radius: $radius;
+}
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+}
+
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+    transition: $property $duration $timing;
+}
+
+
+.button {
+    @include flex-layout(row, space-around);
+    @include box-shadow(2px, 2px, 5px, rgba(0,0,0,0.2));
+    @include transition(background-color, 0.5s, ease-in-out);
+
+    &:hover {
+        background-color: skyblue;
+    }
+
+    &::placeholder {
+        @include placeholder {
+            color: gray;
+            font-style: italic;
+        }
+    }
+}
+
+.text {
+    @include responsive-font(14px, 16px, 18px);
+    @include animation(fadeIn, 1s, ease-in);
+}
+
+
+
+.form-container {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    color: white;
+}
+
+.ch-container {
+    @include flex-layout($flex-direction-column);
+    background-color: green;
+    width: 100%;
+    border-radius: 14px;
+    margin: 1rem .5rem;
+
+    &.collapsed {
+        .ch-body {
+            display: none;
+        }
+
+        .ch-header {
+            border-radius: 14px;
+        }
+    }
+
+    &.expanded {
+        .ch-header {
+            border-radius: 14px 14px 0 0;
+        }
+
+        .ch-body {
+            border-radius: 0 0 14px 14px;
+        }
+
+    }
+
+    .ch-header {
+        @include flex-layout($flex-direction-row, space-between);
+        background-color: blue;
+        width: 100%;
+        align-items: center;
+
+        .ch-title{
+
+        }
+
+        .ch-expander {
+            background-color: transparent;
+            border: none;
+            display: flex;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+
+
+
+    .ch-body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        padding-bottom: 1rem;
+
+        .ch-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+            .ch-buttons-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 1rem;
+                width: 100%;
+            }
+            
+            .ch-button {
+                @include button-styles($primary-color, $primary-hover-color, $primary-active-color);
+
+            }
+        }
+
+        .ch-selected-settings-container {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(81, 124, 178);
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+
+            .ch-selected-setting {
+
+            }
+        }
+
+        .sect-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: rgb(128, 0, 128);
+            width: 100%;
+
+            &.collapsed {
+                .sect-body {
+                    display: none;
+                }
+        
+                .sect-header {
+                    border-radius: 14px;
+                }
+            }
+        
+            &.expanded {
+                .sect-header {
+                    border-radius: 14px 14px 0 0;
+                }
+        
+                .sect-body {
+                    border-radius: 0 0 14px 14px;
+                }
+        
+            }
+
+            .sect-header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                background-color: rgb(99, 38, 38);
+                width: 100%;
+                align-items: center;
+
+                .sect-title {
+
+                }
+
+                .sect-expander {
+                    background-color: transparent;
+                    border: none;
+                    display: flex;
+                    color: white;
+                    font-size: 20px;
+                }
+            }
+
+            .sect-body {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                justify-content: flex-start;
+
+                .sect-buttons {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .sect-buttons-container {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        gap: 1rem;
+                        width: 100%;
+                    }
+
+                    .sect-button {
+                        @include button-styles($secondary-color, $secondary-hover-color, $secondary-active-color);
+
+                    }
+                }
+
+                .sect-selected-settings-container {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: rgb(117, 178, 81);
+                    width: 100%;
+                    align-items: center;
+                    justify-content: center;
+
+                    .sect-selected-setting {
+
+                    }
+                }
+
+                .content-container {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: rgb(178, 81, 81);
+                    width: 100%;
+                    align-items: center;
+                    justify-content: center;
+
+                    .content-item {
+
+                    }
+                }
+            }
+        }
+    }
+}

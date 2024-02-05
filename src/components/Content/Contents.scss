@@ -1,0 +1,71 @@
+.content-item {
+  min-width: 150px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  background-color: rgb(56, 60, 60);
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-top: 2px solid grey;
+
+  .content-items-container {
+    margin: 0.5rem 1rem;
+  }
+
+  .ql-editor {
+    /* Custom styles here */
+    height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .ql-toolbar {
+    /* Custom styles here */
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+}
+
+.content-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.content-button {
+  width: auto;
+  cursor: pointer;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  border-radius: 10px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &.text {
+    background-color: rgb(113, 132, 156);
+    color: white;
+
+    &:hover {
+      background-color: rgb(92, 108, 128);
+    }
+  }
+}
+
+.content-preview-height {
+  position: absolute;
+  z-index: -100;
+}

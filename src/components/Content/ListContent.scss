@@ -1,0 +1,38 @@
+/* .list-items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+
+  .list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: rgb(93, 93, 93);
+    align-items: center;
+    padding: 0.5rem;
+
+    .list-item-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .list-item-btn {
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+
+      &.remove {
+        color: rgb(161, 100, 100);
+
+        &:hover {
+          color: rgb(204, 112, 112);
+        }
+      }
+    }
+  }
+}
+ */
